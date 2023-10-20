@@ -1,0 +1,28 @@
+<!ELEMENT catalog (regions, techniques-to-prepare, recipes)>
+<!ELEMENT regions (region+)>
+<!ELEMENT region EMPTY>
+<!ATTLIST region name CDATA #REQUIRED id ID #REQUIRED>
+<!ELEMENT techniques-to-prepare (technique+)>
+<!ELEMENT technique EMPTY>
+<!ATTLIST technique name CDATA #REQUIRED id ID #REQUIRED>
+<!ELEMENT recipes (recipe+)>
+<!ELEMENT recipe (name, image, author, origin, ingredients, preparation-steps, how-to-serve, suitable-drinks, medical-parameters, allergens)>
+<!ATTLIST recipe ID CDATA #REQUIRED region-ID IDREF #REQUIRED>
+<!ELEMENT name (#PCDATA)>
+<!ATTLIST name food-type CDATA #IMPLIED> 
+<!ELEMENT image EMPTY>
+<!ATTLIST image href ENTITY #REQUIRED>
+<!ELEMENT author (#PCDATA)>
+<!ATTLIST author nationality CDATA #IMPLIED> 
+<!ELEMENT origin (#PCDATA)>
+<!ELEMENT ingredients (list)>
+<!ELEMENT list (item+)>
+<!ELEMENT item (#PCDATA)>
+<!ELEMENT preparation-steps (#PCDATA)>
+<!ATTLIST preparation-steps technique-ID IDREF #REQUIRED>
+<!ELEMENT how-to-serve (#PCDATA)>
+<!ELEMENT suitable-drinks (#PCDATA)>
+<!ELEMENT medical-parameters (#PCDATA)>
+<!ELEMENT allergens (allergen+)>
+<!ELEMENT allergen (#PCDATA)>
+<!NOTATION jpg PUBLIC "jpg viewer">
